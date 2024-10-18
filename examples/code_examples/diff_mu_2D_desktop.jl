@@ -4,7 +4,7 @@ using TCIITensorConversion
 using QuanticsGrids
 using Plots
 using HDF5
-include("functions.jl")
+include("../../src/functions.jl")
 
 
 mps_shifted = h5open("mps_shifted_kx8_px10_n20_py10_ky8_mu.h5", "r") do file
