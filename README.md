@@ -14,7 +14,7 @@ To run the code, the following Julia packages are required for handling tensor c
 
 •	ITensor.jl: A flexible library for implementing tensor network algorithms.
 
-•	TensorCrossInterpolation.jl: A package designed to optimize and interpolate tensor contractions.
+•	TensorCrossInterpolation.jl: A package designed to optimize tensor cross interpolation (making MPS for given function).
 
 Make sure you have these dependencies installed in your Julia environment.
 
