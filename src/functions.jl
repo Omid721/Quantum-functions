@@ -9,6 +9,11 @@ using HDF5
 println("packages uploaded")
 println("-"^30)
 
+##############################################################################
+#  You can visit the series of talks                                         #
+# "Tensor network for machine learning applications" by miles stoudenmire    #
+# to undrestand how the following functions are define.                      # 
+##############################################################################
 
 
 function integrate(M::MPS)
