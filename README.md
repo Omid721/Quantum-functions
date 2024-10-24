@@ -6,7 +6,7 @@ This repository employs **Tensor Network** approaches to develop quantum-inspire
 
 Tensor Networks offer a powerful framework to efficiently represent and manipulate high-dimensional tensors, which are essential for simulating quantum systems with low entangelment. In this repository, we use these networks to mimic certain quantum computing algorithms, allowing for classical simulations of quantum-inspired algorithms. These techniques are widely applicable in condensed matter physics and quantum information theory and more.
 
-The examples here demonstrate the use of Tensor Network methods for calculating Matsubara sums, an important task in finite-temperature quantum field theory and many-body physics. (For more details see the [Link to PDF](Tensor_Network_2.pdf))
+The examples here demonstrate the use of Tensor Network methods for calculating Matsubara sums, an important task in finite-temperature quantum field theory and many-body physics. (For more details see the [Tensor Network Guide](Tensor_Network_2.pdf))
 
 **Dependencies**
 
