@@ -215,5 +215,61 @@ function zipup_MPS_MPS_from_left(Mps1::MPS, Mps2::MPS)
     return M
 end
 
+
+
+
+#####################
+# QFT function      #
+#####################
+
+"""
+Here one need to build the QFT first as
+x1 x2 x3 x4    k1 k2 k3 k4
+|  |  |  |     |  |  |  |
+O--O--O--O-----O--O--O--O
+"""
+function QFT_mps(n::Int, x_max, k_max)
+    Lx = n
+    Lk = n
+
+    L = Int(Lk + Lx)
+    g(x,k) = exp(1im * k * x)
+    function f(v)
+        x0 = b2c(v[1:Lx])
+        k0 = b2c(v[Lx+1:end])
+        x = 2*x_max * (x0-1/2)
+        k = 2*k_max * (k0-1/2)
+        return g(x,k)
+    end
+
+    localdims = fill(2, L)  # Fill the tensor with dimensions of size 2
+
+    tolerance = 1e-11
+
+    tci, ranks, errors = TCI.crossinterpolate2(ComplexF64, f, localdims; tolerance=tolerance, maxbonddim = 250)
+
+    mps_QFT = MPS(tci)
+    return mps_QFT
+end
+
+function FT_fun(g, x_max, max_bond)
+    L = n
+    function f(v)
+        x = b2c(v)
+        y = 2*x_max * (x- 1/2)
+        return g(y)
+    end
+
+    localdims = fill(2, L)  # Fill the tensor with dimensions of size 2
+
+    tolerance = 1e-11
+
+    tci, ranks, errors = TCI.crossinterpolate2(ComplexF64, f, localdims; tolerance=tolerance, maxbonddim = max_bond)
+
+    mps_f = MPS(tci)
+    mps_fk = truncate!(zipup_MPS_MPS_from_left(mps_f, mps_QFT))
+    return mps_fk
+end
+
 println("functions uploaded")
 println("-"^30)
