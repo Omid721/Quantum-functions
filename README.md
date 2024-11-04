@@ -34,7 +34,8 @@ Repository structure
     │   ├── functions.jl        
     ├── examples/
     │   ├── code_examples         
-    │   ├── Notebook_examples        
+    │   ├── Notebook_examples
+    │   ├── Quantum_algorithms
     ├── test/
     │   ├── test_functions.jl  
     ├── README.md               
